@@ -6,7 +6,6 @@ import (
 	"github.com/raismaulana/inventoryP/domain/entity"
 	"github.com/raismaulana/inventoryP/infrastructure/env"
 	"gorm.io/driver/postgres"
-	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 )
@@ -25,11 +24,6 @@ func initGorm(dialector gorm.Dialector, config *gorm.Config) *gorm.DB {
 		}
 	}
 	return db
-}
-
-// NewGormDefault ...
-func NewGormDefault() *gorm.DB {
-	return initGorm(sqlite.Open("default.db"), &gorm.Config{})
 }
 
 func NewGormPostgres() *gorm.DB {
